@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 2,
+  "note": "Spoken/shown lines for the coach avatar organized by theme. Each line must be strictly under 140 chars for fast speech and responsive cards. {name} = learner's name.",
+  "themes": {
+    "classic": {
+      "morning": [
+        "Good morning, {name}. A gentle nudge: one problem before the day gets loud?",
+        "Morning, {name}! Your sheet is ready whenever you are. Just one row to begin.",
+        "Hi {name}, it's 8:30. Chai in hand, editor open, ten quiet minutes. Shall we?",
+        "Good morning! Today's plan is small and doable. Let's get your first green square.",
+        "Rise and solve, {name}. I saved your place in the sheet."
+      ],
+      "study": [
+        "Hey {name}, it's study time. Your next topic is waiting. Ready to begin?",
+        "Time for your DSA session, {name}. Start with a revision card, then one new problem.",
+        "Knock knock. Your streak and I would love to see you in the editor.",
+        "{name}, twenty minutes is enough to keep the streak alive. Let's go.",
+        "Session time. Open the sheet and I'll keep you company."
+      ],
+      "nudge_missed": [
+        "No pressure, {name}. One easy problem keeps the momentum. Want to try one?",
+        "Still here for you. Even a ten-minute revision counts today.",
+        "Quick check-in: the day isn't over. One subtopic still counts."
+      ],
+      "snooze_ack": [
+        "Okay, I'll check back in a bit.",
+        "Snoozed. I'll be back soon, {name}."
+      ],
+      "start_ack": [
+        "Lovely. Let's do this.",
+        "That's the spirit, {name}. Opening your sheet."
+      ],
+      "done_today": [
+        "Today's goal is done, {name}. Beautiful consistency. Rest well.",
+        "Green square earned. See you tomorrow morning."
+      ],
+      "weekly_review": [
+        "It's review time, {name}. Let's look at your week together.",
+        "Sunday check-in: a few minutes to look back and plan ahead."
+      ]
+    },
+    "hero": {
+      "morning": [
+        "Rise, {name}. Every hero's day starts with one small, brave move. Make it one problem.",
+        "Courage is just starting before you feel ready, {name}. Open the sheet and take the first step.",
+        "The city sleeps, but champions build their foundations early, {name}. Let's solve one today.",
+        "Every legend began with a humble morning rep. Time to conquer your first problem, {name}.",
+        "Your strength is built one test case at a time, {name}. Let's tackle today's challenge.",
+        "No cape required today, {name}—just quiet focus and one clean solution. Ready to roll?"
+      ],
+      "study": [
+        "Suit up, {name}. Tonight's mission is your next topic. Ready?",
+        "Mission briefing: one algorithm, full dedication. Let's breach the next fortress, {name}.",
+        "The evening patrol starts now, {name}. Review one card, solve one problem, claim the win.",
+        "Even the greatest protectors train in the quiet hours. Step into the arena, {name}.",
+        "Focus your powers on the task at hand, {name}. Your next milestone is waiting.",
+        "Stand tall and trust your preparation, {name}. Tonight we turn a weak spot into armor."
+      ],
+      "nudge_missed": [
+        "Even heroes stumble, {name}. What matters is standing back up. One quick problem tonight?",
+        "No defeat is final until you stop trying, {name}. Reclaim momentum with one easy win.",
+        "A true comeback begins with a single step. I'm right beside you, {name}."
+      ],
+      "snooze_ack": [
+        "Tactical pause acknowledged. Regroup and recharge, {name}.",
+        "Holding the perimeter. I'll signal you again shortly, {name}."
+      ],
+      "start_ack": [
+        "Mission initiated. Let's make this session count, {name}.",
+        "Into action. I know you've got this, {name}."
+      ],
+      "done_today": [
+        "Objective secured, {name}! Outstanding work today. Stand down and rest.",
+        "Victory logged. Another green square in the books, hero."
+      ],
+      "weekly_review": [
+        "Debrief time, {name}. Let's examine our battles and plan next week's campaign.",
+        "Reviewing mission logs, {name}. Look how far your training has brought you."
+      ]
+    },
+    "realm": {
+      "morning": [
+        "A new day on the map, {name}. Take one step toward the next castle: one problem.",
+        "Dawn breaks over the frontier, {name}. Unfurl your scroll and plot today's journey.",
+        "The road winds onward, {name}. Pack your curiosity and let's explore one new trail.",
+        "Every vast realm is crossed one league at a time. Let's clear one puzzle, {name}.",
+        "The morning sun warms the watchtower, {name}. Time to survey today's quest.",
+        "A traveler grows wise by walking daily. One fresh problem awaits you, {name}."
+      ],
+      "study": [
+        "Evening has come, {name}. Light your lamp and open the next chapter.",
+        "The campfire is lit and the stars are out, {name}. Time to study the ancient scrolls.",
+        "Rest your boots by the fire, {name}, and let's unlock the secrets of tonight's topic.",
+        "A quiet harbor at nightfall, {name}. Perfect for sharpening your problem-solving craft.",
+        "The gates of the archives are open, {name}. Let's discover one new algorithm together.",
+        "Gather your thoughts, brave traveler {name}. One focused hour reveals hidden treasures."
+      ],
+      "nudge_missed": [
+        "A fog delayed the expedition, {name}, but the trail is still here. Take a single step.",
+        "Every wandering ranger takes an unintended rest. Let's light the torch again, {name}.",
+        "No trail is lost forever, {name}. One short problem brings us back on course."
+      ],
+      "snooze_ack": [
+        "Resting at the waystation. I'll watch the lantern, {name}.",
+        "Pause your march a moment. We'll resume down the path shortly, {name}."
+      ],
+      "start_ack": [
+        "The quest resumes. May your thoughts be clear and swift, {name}.",
+        "Opening the grimoire. Let's unravel this mystery, {name}."
+      ],
+      "done_today": [
+        "Territory charted, {name}. Rest well by the campfire under the starry sky.",
+        "Another milestone claimed on your grand map, {name}. Safe travels tonight."
+      ],
+      "weekly_review": [
+        "Look back from this high ridge, {name}. Behold the valleys you crossed this week.",
+        "Time to update the chronicles, {name}. Let's record the triumphs of the week."
+      ]
+    },
+    "mahabharata": {
+      "morning": [
+        "Be like Arjuna today, {name}: see only the bird's eye. One problem, full focus.",
+        "Do the work, {name}, and let go of the worry about results. That is the Gita's advice, and it works for DSA too.",
+        "Like the archer stringing the bow at sunrise, steady your breath, {name}. One problem today.",
+        "A chariot moves only when each wheel turns, {name}. Your daily habit is that wheel.",
+        "The greatest battles are won first within the calm mind, {name}. Begin with one quiet solution.",
+        "Even Bhishma honored the power of daily vows, {name}. Fulfill yours with just one problem.",
+        "Clear the field of distractions, {name}. Fix your gaze upon one concept and master it."
+      ],
+      "study": [
+        "Ekalavya learned with no teacher, only daily practice. Your topic is waiting, {name}.",
+        "Steady practice transforms the novice into a master, {name}. Tonight, sharpen your aim.",
+        "Duty done without wavering is the highest strength, {name}. Let's conquer tonight's topic.",
+        "Karna never surrendered to circumstance, only deepened his resolve. Stand firm, {name}.",
+        "Knowledge is the sharpest arrow in the quiver, {name}. Let's add one more to yours tonight.",
+        "When your mind is collected like a calm lake, no problem can confound you, {name}."
+      ],
+      "nudge_missed": [
+        "Even warriors drop the shield for a day, {name}. Rise again today with a calm heart.",
+        "Do not grieve yesterday's pause, {name}. The bow is in your hands right now.",
+        "A temporary retreat is not defeat, {name}. One simple problem restores your focus."
+      ],
+      "snooze_ack": [
+        "Catch your breath, {name}. Patience is also a warrior's discipline.",
+        "A brief silence before the strike. I will call you soon, {name}."
+      ],
+      "start_ack": [
+        "Draw the bowstring with pure focus, {name}. Let us begin.",
+        "With firm resolve, we step onto the field, {name}."
+      ],
+      "done_today": [
+        "Your duty for today is fulfilled, {name}. Rest with a peaceful mind.",
+        "The arrow struck true, {name}. Another victory earned through steady action."
+      ],
+      "weekly_review": [
+        "Reflect upon the chariot's path, {name}. Where did we stand strong, and where do we adjust?",
+        "A wise strategist reviews every week's progress, {name}. Let us see how far you've come."
+      ]
+    }
+  }
+}
