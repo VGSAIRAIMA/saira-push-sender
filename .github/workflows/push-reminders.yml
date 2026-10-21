@@ -1,0 +1,94 @@
+﻿# push-reminders.yml
+#
+# Runs the SAIRA push-notification sender on a 15-minute schedule.
+#
+# Concepts:
+#   cron "*/15 * * * *"  - GitHub's scheduler fires up to every 15 min (UTC).
+#                          It can be late by several minutes. In public repos,
+#                          scheduled workflows may be paused if there is no
+#                          repo activity for ~60 days.
+#   workflow_dispatch    - lets you trigger the workflow manually from the
+#                          GitHub Actions UI with optional inputs.
+#   dry_run (default true) - read Firestore and compute who would get notified,
+#                          but do NOT actually call FCM and do NOT update
+#                          reminderState. Safe to run at any time.
+#   force_test           - send one real notification right now to the user
+#                          whose UID is stored in the TEST_UID repo secret.
+#                          Bypasses scheduling and dedupe rules.
+#   concurrency          - prevents two runs from overlapping, which could cause
+#                          double-sends.
+#
+# Secrets required (set in repo Settings → Secrets → Actions):
+#   FIREBASE_SERVICE_ACCOUNT  – the service account key JSON (single-line)
+#   FIREBASE_PROJECT_ID       – your Firebase project ID (e.g. "saira-dsa")
+#   TEST_UID                  – the Firestore UID of the test user (force_test only)
+
+name: Push Reminders
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (compute without sending)"
+        type: boolean
+        default: true
+      force_test:
+        description: "Force-test: send now to the TEST_UID user, ignore schedule"
+        type: boolean
+        default: false
+
+# Never run two instances at the same time.
+# If a run is already in progress, cancel it and start fresh with the new one.
+concurrency:
+  group: push-reminders
+  cancel-in-progress: true
+
+# Minimal permissions: only read the repo to check out the code.
+permissions:
+  contents: read
+
+jobs:
+  send:
+    name: Send push reminders
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out code ── pinned to the exact commit SHA of v4.1.7
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.1.7
+
+      # 2. Set up Node.js ── pinned to the exact commit SHA of v4.1.0
+      - name: Set up Node.js
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8  # v4.0.2
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Type-check before running
+      - name: Type check
+        run: npm run typecheck
+
+      # 5. Build TypeScript
+      - name: Build
+        run: npm run build
+
+      # 6. Run the sender
+      #    Secrets are passed ONLY through env vars — never echoed.
+      #    DRY_RUN defaults to true on scheduled runs (safe);
+      #    workflow_dispatch lets the user turn it off.
+      - name: Run push sender
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_PROJECT_ID:      ${{ secrets.FIREBASE_PROJECT_ID }}
+          TEST_UID:                 ${{ secrets.TEST_UID }}
+          # On a scheduled run, dry_run input is empty → treat as "false"
+          # (the scheduled run is the real run).
+          DRY_RUN:    ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run == true && 'true' || 'false' }}
+          FORCE_TEST: ${{ github.event_name == 'workflow_dispatch' && inputs.force_test == true && 'true' || 'false' }}
+        run: node dist/sender.js
